@@ -1,0 +1,15 @@
+.country_information {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* border: solid 2px red; */
+
+}
+
+.flag {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+}
+
