@@ -9,7 +9,7 @@ import './CountryInfo.css';
 
 export default function CountryInfo({ country }) {
   const userCountry = CountryData.countries[country].name;
-  const [timezone, setTimezone] = useState([]);
+  //const [timezone, setTimezone] = useState([]);
   const [language, setLanguage] = useState([]);
   const [flag, setFlag] = useState([]);
   const COUNTRY_API = `https://restcountries.eu/rest/v2/name/${userCountry}`;
@@ -18,7 +18,7 @@ export default function CountryInfo({ country }) {
     async function fetchInfo() {
       try {
         axios.get(COUNTRY_API).then((result) => {
-          setTimezone(result.data[0].timezones);
+          //setTimezone(result.data[0].timezones);
           setLanguage(result.data[0].languages[0].name);
           // console.log(result.data[0].languages[0].name);
           setFlag(result.data[0].flag);
@@ -29,7 +29,7 @@ export default function CountryInfo({ country }) {
     }
 
     fetchInfo();
-  }, []);
+  },[]);
 
   let localTime = DateTime.now().toLocaleString(
     DateTime.DATETIME_MED,
