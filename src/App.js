@@ -14,6 +14,7 @@ const App = () => {
   const [lng, setLng] = useState([]);
   const [country, setCountry] = useState([]);
   const [region, setRegion] = useState([]);
+  const [city, setCity] = useState([]);
 
   useEffect(() => {
     async function fetchIp() {
@@ -27,6 +28,7 @@ const App = () => {
           setLng(result.data.location.lng);
           setCountry(result.data.location.country);
           setRegion(result.data.location.region);
+          setCity(result.data.location.city);
           setIsLoading(false);
         });
       } catch (error) {
@@ -41,6 +43,7 @@ const App = () => {
     <div className="App">
       <header>
         <h1>You are here</h1>
+        {/* <i className="fas fa-anchor"></i> */}
       </header>
 
       <main>
@@ -55,6 +58,7 @@ const App = () => {
               ipAddress={ipAddress}
               country={country}
               region={region}
+              city={city}
             />
             <Map lat={lat} lng={lng} />
           </div>

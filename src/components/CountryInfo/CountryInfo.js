@@ -7,7 +7,12 @@ import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './CountryInfo.css';
 
-export default function CountryInfo({ country, region, ipAddress }) {
+export default function CountryInfo({
+  country,
+  region,
+  ipAddress,
+  city,
+}) {
   const userCountry = CountryData.countries[country].name;
   const [timezone, setTimezone] = useState([]);
   const [language, setLanguage] = useState([]);
@@ -42,14 +47,16 @@ export default function CountryInfo({ country, region, ipAddress }) {
         <Card.Body>
           <Card.Title>
             <h3>IP: {ipAddress}</h3>
-            {region}, {userCountry}
+            {city}, {region}, {userCountry}
           </Card.Title>
           <p>official language(s): {language}</p>
           <Card.Text>
             <span>{localTime}</span> <span>{timezone}</span>
           </Card.Text>
-          <a href={wikiCountry}>
-            <Button variant="dark">{userCountry} on Wikipedia</Button>
+          <a href={wikiCountry} target="_blank" rel="noreferrer">
+            <Button variant="dark">
+              Check {userCountry} on Wikipedia
+            </Button>
           </a>
         </Card.Body>
       </Card>
