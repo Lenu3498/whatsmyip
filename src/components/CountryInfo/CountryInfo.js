@@ -3,7 +3,7 @@ import CountryData from 'country-data';
 import axios from 'axios';
 import { DateTime } from 'luxon';
 import { Card } from 'react-bootstrap';
-import Button from 'react-bootstrap/button';
+import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './CountryInfo.css';
 
