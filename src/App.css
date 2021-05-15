@@ -64,7 +64,6 @@ body {
 
 header {
   height: 5rem;
-  background-color: cadetblue;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,6 +71,9 @@ header {
 
 
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -88,7 +90,19 @@ header {
 .container__all {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  position: relative;
+  justify-content: space-evenly;
+  /* position: relative; */
   margin: 30px;
+}
+
+.loading__div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-spinner {
+  font-size: 150px;
+  vertical-align: middle;
 }

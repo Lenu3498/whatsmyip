@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Ip from './components/Ip/Ip.js';
 import Map from './components/Map/Map.js';
 import CountryInfo from './components/CountryInfo/CountryInfo.js';
 import './App.css';
@@ -14,6 +13,7 @@ const App = () => {
   const [lat, setLat] = useState([]);
   const [lng, setLng] = useState([]);
   const [country, setCountry] = useState([]);
+  const [region, setRegion] = useState([]);
 
   useEffect(() => {
     async function fetchIp() {
@@ -21,10 +21,12 @@ const App = () => {
 
       try {
         axios.get(API_URL).then((result) => {
+          console.log(result.data);
           setIpAddress(result.data.ip);
           setLat(result.data.location.lat);
           setLng(result.data.location.lng);
           setCountry(result.data.location.country);
+          setRegion(result.data.location.region);
           setIsLoading(false);
         });
       } catch (error) {
@@ -43,21 +45,18 @@ const App = () => {
 
       <main>
         {isLoading ? (
-          <div>
+          <div className="loading__div">
             <h2>Finding your IP address...</h2>
             <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
           </div>
         ) : (
-          <div>
-            <div className="container__all">
-              <Ip ipAddress={ipAddress} />
-
-              <CountryInfo country={country} />
-            </div>
-
-            <div className="container__map">
-              <Map lat={lat} lng={lng} />
-            </div>
+          <div className="container__all">
+            <CountryInfo
+              ipAddress={ipAddress}
+              country={country}
+              region={region}
+            />
+            <Map lat={lat} lng={lng} />
           </div>
         )}
       </main>

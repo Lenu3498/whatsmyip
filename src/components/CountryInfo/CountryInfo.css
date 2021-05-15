@@ -13,3 +13,13 @@
     background-color: white;
 }
 
+.card {
+    position: absolute;
+    padding: 5px;
+    top: 20%;
+    left: 10%;
+    color: white;
+    background-color: rgba(56, 89, 116, 0.75);
+    text-align: center;
+}
+
